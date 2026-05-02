@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  font-family: Rajdhani, Inter, ui-sans-serif, system-ui, sans-serif;
+  background: #050710;
+  text-rendering: geometricPrecision;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  overflow: hidden;
+}
+
+button,
+canvas,
+video {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@layer components {
+  .glass-panel {
+    border: 1px solid rgba(148, 221, 255, 0.18);
+    background:
+      linear-gradient(135deg, rgba(8, 13, 32, 0.74), rgba(8, 8, 18, 0.48)),
+      radial-gradient(circle at 12% 0%, rgba(34, 211, 238, 0.18), transparent 34%),
+      radial-gradient(circle at 88% 10%, rgba(244, 114, 182, 0.14), transparent 32%);
+    box-shadow:
+      0 18px 80px rgba(0, 0, 0, 0.46),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12),
+      0 0 34px rgba(34, 211, 238, 0.12);
+    backdrop-filter: blur(18px);
+  }
+}
+
+.storm-aura {
+  background:
+    radial-gradient(circle at 17% 23%, rgba(34, 211, 238, 0.14), transparent 24%),
+    radial-gradient(circle at 86% 17%, rgba(244, 114, 182, 0.1), transparent 24%),
+    linear-gradient(90deg, rgba(34, 211, 238, 0.08), transparent 30%, rgba(244, 114, 182, 0.08));
+  mix-blend-mode: screen;
+}
+
+.storm-aura-hot {
+  filter: saturate(1.35) brightness(1.18);
+  opacity: 0.95;
+}
+
+.screen-shake {
+  animation: screenShake 460ms cubic-bezier(0.36, 0.07, 0.19, 0.97);
+}
+
+@keyframes screenShake {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  18% {
+    transform: translate3d(-7px, 4px, 0);
+  }
+  36% {
+    transform: translate3d(8px, -3px, 0);
+  }
+  54% {
+    transform: translate3d(-5px, -2px, 0);
+  }
+  72% {
+    transform: translate3d(5px, 3px, 0);
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    overflow-y: auto;
+  }
+}
